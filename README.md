@@ -40,7 +40,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-![Flixster](https://github.com/adellevo/flixster_starter/blob/main/flixster.gif)
+![Flixster]([https://giphy.com/embed/PzOSvRS7qHyJ47A5ZO](https://media.giphy.com/media/PzOSvRS7qHyJ47A5ZO/giphy.gif))
 
 ### Reflection
 
