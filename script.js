@@ -3,9 +3,7 @@ const searchFormElement = document.getElementById("search-form");
 const API_KEY = "15ba438c6382457bbb65323385b0cdb8";
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p';
 const movieDivElement = document.getElementById("movies-grid");
-const moviePopupElement = document.getElementById("movie-popup");
-const popupNameElement = document.getElementById("popup-name");
-const popupVideoElement = document.getElementById("popup-video");
+const moviePopupContainerElement = document.getElementById("movie-container");
 const INITIAL = 5;
 let numToShow = INITIAL;
 let movies;
@@ -32,21 +30,28 @@ async function getMovies() {
     populateMovieData(numToShow);
 }
 
-async function setPopupData(movieTitle, movieId) {
+async function createPopup(movieTitle, movieId) {
+    moviePopupContainerElement.innerHTML = `
+        <div id="movie-popup">
+            <h2 id="popup-name"></h2>
+            <iframe id="popup-video" width="420" height="315"></iframe>
+            <button id="popup-close-btn" onclick="hidePopup()">Close</button>
+        </div>
+    `;
+
+    const popupNameElement = document.getElementById("popup-name");
+    console.log("popupnameelement: ", popupNameElement);
     popupNameElement.innerText = movieTitle;
+
+    const popupVideoElement = document.getElementById("popup-video");
     const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
     const result = await response.json();
     popupVideoElement.src = `https://www.youtube.com/embed/${result.results[0].key}?autoplay=1&mute=1`;
 }
 
-function showPopup() {
-    if (moviePopupElement.classList.contains("hide")) {
-        moviePopupElement.classList.remove("hide");
-    }
-}
-
 function hidePopup() {
-    moviePopupElement.classList.add("hide");
+    let moviePopupElement = document.getElementById("movie-popup");
+    moviePopupContainerElement.removeChild(moviePopupElement);
 }
 
 function clearSearch() {
@@ -62,8 +67,7 @@ async function populateMovieData() {
         const movieCardElement = document.createElement("div");
         movieCardElement.className="movie-card";
         movieCardElement.addEventListener("click", () => {
-            setPopupData(movies[i].title, movies[i].id);
-            showPopup();
+            createPopup(movies[i].title, movies[i].id);
         });
 
         // add movie cards
