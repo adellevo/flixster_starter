@@ -51,7 +51,7 @@ body {
     background-color: transparent;
 }
 
-#submit-btn, #load-more-movies-btn {
+#submit-btn, #load-more-movies-btn, #popup-close-btn {
     background-color: black;
     padding: 0.8em;
     color: white;
@@ -124,6 +124,9 @@ h1 {
 }
 
 #movie-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
