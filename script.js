@@ -6,7 +6,8 @@ const movieDivElement = document.getElementById("movies-grid");
 const moviePopupElement = document.getElementById("movie-popup");
 const popupNameElement = document.getElementById("popup-name");
 const popupVideoElement = document.getElementById("popup-video");
-let numToShow = 5;
+const INITIAL = 5;
+let numToShow = INITIAL;
 let movies;
 
 searchFormElement.addEventListener("submit", (event) => {
@@ -48,7 +49,15 @@ function hidePopup() {
     moviePopupElement.classList.add("hide");
 }
 
+function clearSearch() {
+    searchElement.value = "";
+    numToShow = INITIAL;
+    movieDivElement.innerHTML = "";
+    populateInitial();
+}
+
 async function populateMovieData() {
+    console.log(movies);
     for (let i = 0; i < numToShow; i++) {
         const movieCardElement = document.createElement("div");
         movieCardElement.className="movie-card";

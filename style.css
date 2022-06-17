@@ -6,6 +6,18 @@ body {
     padding: 3em;
 }
 
+#close-icon {
+    width: 20px;
+    margin-top: 0.2em;
+    margin-left: -4.2em;
+    opacity: 85%;
+}
+
+#close-search-btn {
+    appearance: none;
+    cursor: pointer;
+}
+
 #movies-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -34,7 +46,12 @@ body {
     font-size: larger;
 }
 
-button {
+#close-search-btn {
+    border: none;
+    background-color: transparent;
+}
+
+#submit-btn, #load-more-movies-btn {
     background-color: black;
     padding: 0.8em;
     color: white;
@@ -50,6 +67,10 @@ button {
 #search-box {
     display: flex;
     /* background-color: aliceblue; */
+}
+
+#search-box > * {
+    margin-right: 0.1em;
 }
 
 #search-form {
@@ -125,4 +146,30 @@ h1 {
 
 .hide {
     display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    /* body {
+      background-color: lightblue;
+    } */
+    #movies-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-gap: 2em; 
+        row-gap: 2em;
+        margin: 2em 0;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    /* body {
+      background-color: lightblue;
+    } */
+    #movies-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-gap: 2em; 
+        row-gap: 2em;
+        margin: 2em 0;
+    }
 }
