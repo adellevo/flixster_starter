@@ -4,7 +4,7 @@ Submitted by: Adelle Vo
 
 Estimated time spent: **8** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): [Flixster Deployed Site](https://adellevo.github.io/flixster_starter/)
 
 ### Application Features
 
